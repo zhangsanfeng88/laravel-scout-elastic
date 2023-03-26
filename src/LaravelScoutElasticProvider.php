@@ -35,7 +35,8 @@ class LaravelScoutElasticProvider extends ServiceProvider
      */
     protected function ensureElasticClientIsInstalled()
     {
-        if (class_exists(ClientBuilder::class)) {
+        if (class_exists(ClientBuilder::class) || class_exists(\Elastic\Elasticsearch\ClientBuilder::class)) {
+
             return;
         }
 
